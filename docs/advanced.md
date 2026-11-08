@@ -1,10 +1,10 @@
 # Learning by example
 
-We will now demonstrate how to investigate NTM species and drug resistance using several example cases.
+We will now demonstrate how to investigate NTM species and drug resistance using several examples.
 
 ## Sample relatedness
 
-You have been given sequence data for four _M. intracellulare_ isolates and have been taked with identifying if they are linked to an outbreak.
+You have been given sequence data for four _M. intracellulare_ isolates and have been tasked with identifying if they are linked to an outbreak.
 
 Isolates IDs:
 
@@ -20,7 +20,7 @@ Isolates IDs:
 
 !!! question
 
-    Try to answer the following quesitons before moving on:
+    Try to answer the following questions before moving on:
     
     * Which species do you observe?
     * Is there any subspecies classification?
@@ -29,7 +29,7 @@ Isolates IDs:
 
 ### High resolution clustering
 
-While some indicate they may be part of the [HCU outbreak](TODO), it can be useful to see how distant the isolates are to a higher resolution. SNP distance is a simple metric used to measure how similar two genomes are. The logic is that if two isolates share a common ancestor very recently, which happens when you have an outbreak, they will have had less time to acumulate mutations than if they are not linked and share an ancestor further back in time. To look at SNP distance, we first need to create a consensus genome for each isolates. NTM-Profiler has this functionality but it is only available via the CLI. To create a consensus genome, variants must be called across the whole genome and as a result the analysis will take longer to run. For this reason it is not enabled by default. To enable it simply add `--consensus` to your command. For example:
+While some indicate they may be part of the [HCU outbreak](https://pubmed.ncbi.nlm.nih.gov/28711585/), it can be useful to see how distant the isolates are to a higher resolution. SNP distance is a simple metric used to measure how similar two genomes are. The logic is that if two isolates share a common ancestor very recently, which happens when you have an outbreak, they will have had less time to accumulate mutations than if they are not linked and share an ancestor further back in time. To look at SNP distance, we first need to create a consensus genome for each isolate. NTM-Profiler has this functionality but it is only available via the CLI. To create a consensus genome, variants must be called across the whole genome and as a result the analysis will take longer to run. For this reason it is not enabled by default. To enable it simply add `--consensus` to your command. For example:
 
 ```
 ntm-profiler profile -1 /data/mount/ntm-ngs-data/ntm-course/fastq/SAMN41229600_1.fastq.gz -2 /data/mount/ntm-ngs-data/ntm-course/fastq/SAMN41229600_2.fastq.gz -p SAMN41229600 -t 4 --consensus
@@ -57,7 +57,7 @@ snp-dists alignment.fa > distance.tsv
 This will create a matrix in TSV format. You can open this file on the terminal or on your system if you have access to excel or similar software.
 
 !!! question
-    * Do the SNP distances correspond to the subspecies assignemnts you saw?
+    * Do the SNP distances correspond to the subspecies assignments you saw?
     * Which isolates are the most closely related to each other?
     * Are any isolates part of an outbreak?
 
@@ -69,7 +69,7 @@ The alignment can also be used to create phylogenetic trees. While this is not v
 iqtree -s alignment.fa -st DNA
 ```
 
-The phylogenetic tree will be output in a file called `alignment.fa.treefile`. This can be visualised in tools like [iTOL](TODO). Open the website, click on upload and select the tree file. 
+The phylogenetic tree will be output in a file called `alignment.fa.treefile`. This can be visualised in tools like [iTOL](https://itol.embl.de/). Open the website, click on upload and select the tree file. 
 
 !!! question
     Does the clustering correspond with the observed SNP distance values?
@@ -78,7 +78,7 @@ The phylogenetic tree will be output in a file called `alignment.fa.treefile`. T
 
 ## Novel species
 
-Three cases of pulmonary TODO. The isoaltes were cutured and sequenced with Illumina technology. You have been tasked with identifying the species.
+Three cases of pulmonary NTM disease were diagnosed within a year of each other in the same geographic region. The isolates were cutured and sequenced with Illumina technology. You have been tasked with identifying the species.
 
 Isolate IDs:
 * WMW1108
@@ -170,7 +170,7 @@ We can use a diferent distance metric called mash distance which can be calculat
 mashtree --numcpus 4 --outtree mashtree.nwk assemblies/* representative_asm/*
 ```
 
-This will take a couple of minutes as it is doing a lot of comparisons (853*853 to be exact!). When it is finished you should have the tree in the `mashtree.nwk` file. This is a newick format file which can be visualised with tools such as [iTOL](TODO). Open the website and upload the newick file. By default it will use the name of the file as the names of the leaves in the tree. To make this more informative - drag and drop onto the tree the file named `species_text_labels.txt`  in the `metadata` folder. This will annotate the species names. 
+This will take a couple of minutes as it is doing a lot of comparisons (853*853 to be exact!). When it is finished you should have the tree in the `mashtree.nwk` file. This is a newick format file which can be visualised with tools such as [iTOL](https://itol.embl.de/). Open the website and upload the newick file. By default it will use the name of the file as the names of the leaves in the tree. To make this more informative - drag and drop onto the tree the file named `species_text_labels.txt`  in the `metadata` folder. This will annotate the species names. 
 
 !!! question
     * Where do our isolates cluster? 

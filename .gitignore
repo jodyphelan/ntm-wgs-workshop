@@ -1,0 +1,5 @@
+site/
+ntm-ngs-data/
+.cache/
+.venv/
+.DS_Store

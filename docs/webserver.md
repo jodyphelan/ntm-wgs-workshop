@@ -55,7 +55,7 @@ It will show you the:
 5. Name of the species database used
 6. The predicted species
 
-In this case the software has predicted **_Mycobacterium abscessus_**. 
+In this case, the software has predicted **_Mycobacterium abscessus_**. 
 
 !!! Note
     Species prediction is performed using the taxonomic nomenclature published by the Genome Taxonomy Database (GTDB). This uses the single Mycobacterium genus for all species and differs in this respect from the NCBI taxonomy scheme which splits it up into five different genus.
@@ -83,7 +83,7 @@ The species tab will show you information about the species and subspecies assig
 For each species the following is shown:
 
 1. The species name
-2. The ANI with the match in the databse
+2. The ANI with the match in the database
 3. The absolute abundance 
 4. The relative abundance - when only one species is present this will be 100% but if you have a mixture this will approximate to the proportion of that species in the mixture
 5. The accession of the closest match in the database
@@ -106,11 +106,11 @@ The first summary table will show a row for each drug together with the any resi
 !!! question
     You may notice that the same position is represented twice in rrl. Why do you think this is?
 
-These results are further described in the subsequent tables. For drug resistant variants extra information incldues:
+These results are further described in the subsequent tables. For drug resistant variants extra information includes:
 1. Position - this is the position of the mutation in the reference genome
 2. Type - the functional consequence of the mutation e.g. missense or a non-coding variant (in rRNA)
 3. Fraction - the proportion of the reads supporting a variant (values between 0 and 1). Values less than 1 could indicate a minority variant due to a subpopulation with the mutation (i.e. heteroresistance)
-4. E. coli monenclature - mutations may somtimes be refered to based on position of the mutation in E. coli
+4. E. coli nomenclature - mutations may sometimes be referred to based on position of the mutation in E. coli
 
 NTM-Profiler does not only analyse drug resistant variants, variants are detected across the whole gene of interest and so may capture other mutations which are not associated with resistance or a novel resistance variant that is not present in the database. Similar information is shows as described above.
 

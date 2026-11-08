@@ -2,10 +2,10 @@
 
 ## Using docker to access the command line
 
-NTM-Profiler is actually a command line tool and can be run using its command-line interface (CLI). When you upload a file to the webserver it gets processed using this tool and the results are then displayed to your browser. There are some situations where you may want to use the CLI instead of the webserver:
+NTM-Profiler is a python-based tool and can be run using its command-line interface (CLI). When you upload a file to the webserver it gets processed using this tool and the results are then displayed to your browser. There are some situations where you may want to use the CLI instead of the webserver:
 
 1. When you have a lot of data to process. You can use commands to automate the process of running ntm-profiler and collecting the results.
-2. Accession more advanced features of ntm-profiler such as consensus genome creation and modifying the filtering criteria.
+2. Accessing more advanced features of ntm-profiler such as consensus genome creation and modifying the filtering criteria.
 
 The CLI can only run on Linux and macOS systems so we have used docker to make it run on windows. Docker allows you to run a virtual linux system. It also makes installation easy as we can create an "image" with all the software pre-installed. 
 
@@ -57,7 +57,7 @@ We can then run the following command:
 ntm-profiler profile -1 /data/mount/ntm-ngs-data/ntm-course/fastq/SAMEA2071452_1.fastq.gz -2 /data/mount/ntm-ngs-data/ntm-course/fastq/SAMEA2071452_2.fastq.gz -p SAMEA2071452 -t 4
 ```
 
-The pattern is `ntm-profiler profiler` followed by a series of arguments:
+The pattern is `ntm-profiler profile` followed by a series of arguments:
 
 1. `-1` points to the forward reads fastq file. This can be a relative or absolute path
 2. `-2` points to the reverse reads fastq file
@@ -96,9 +96,9 @@ ntm-profiler collate
 
 After a few seconds it will finish running and you should have two files available:
 1. ntmprofiler.collate.txt - this contains a summary on the sample level (e.g. species)
-2. ntmprofiler.collate.txt.variants.csv - this contains a list of all variants found across your samles.
+2. ntmprofiler.collate.txt.variants.csv - this contains a list of all variants found across your samples.
 
 Try to open these by using one of the previously described methods.
 
 !!! question
-    Which resistance mutations are present?
+    * Which resistance mutations are present across all your samples?
