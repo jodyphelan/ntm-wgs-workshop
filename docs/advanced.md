@@ -171,7 +171,7 @@ We can use a different distance metric called mash distance which can be calcula
 mashtree --numcpus 4 --outtree mashtree.nwk assemblies/* representative_asm/*
 ```
 
-This will take a couple of minutes as it is doing a lot of comparisons (853*853 to be exact!). When it is finished you should have the tree in the `mashtree.nwk` file. This is a newick format file which can be visualised with tools such as [iTOL](https://itol.embl.de/). Open the website and upload the newick file. By default it will use the name of the file as the names of the leaves in the tree. To make this more informative - drag and drop onto the tree the file named `species_text_labels.txt`  in the `metadata` folder. This will annotate the species names. 
+This will take a couple of minutes as it is doing a lot of comparisons (478*478 to be exact!). When it is finished you should have the tree in the `mashtree.nwk` file. This is a newick format file which can be visualised with tools such as [iTOL](https://itol.embl.de/). Open the website and upload the newick file. By default it will use the name of the file as the names of the leaves in the tree. To make this more informative - drag and drop onto the tree the file named `species_text_labels.txt`  in the `metadata` folder. This will annotate the species names. 
 
 !!! question
     * Where do our isolates cluster? 

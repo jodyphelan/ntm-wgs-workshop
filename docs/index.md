@@ -24,7 +24,7 @@ Forward           -------->
 Fragment          ---------------------------
 Reverse                             <--------
 
-Gap not sequenced           |<----->|
+Gap not sequenced           |<---->|
 ```
 
 ## Next
