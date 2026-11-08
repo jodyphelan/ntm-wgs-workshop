@@ -42,7 +42,7 @@ Run the command with consensus genome calling enabled for all the genomes. After
 cat SAMN41229600.consensus.fa SAMN41229617.consensus.fa SAMN41229627.consensus.fa WMW1085.consensus.fa > alignment.fa
 ```
 
-Next we can should calculate the number of SNPs between each isolate. We can use a tool called `snp-dists` to do this. But first we will need to change to a different conda environment. Change to the `analysis` environment with the following command:
+Next we can calculate the number of SNPs between each isolate. We can use a tool called `snp-dists` to do this. But first we will need to change to a different conda environment. Change to the `analysis` environment with the following command:
 
 ```
 micromamba activate analysis
@@ -74,13 +74,14 @@ The phylogenetic tree will be output in a file called `alignment.fa.treefile`. T
 !!! question
     Does the clustering correspond with the observed SNP distance values?
     
-    Hint: hit `m` on your keyboard to perform midpoint rooting and will be easier to interpret the tree.
+    Hint: hit ++m++ on your keyboard to perform midpoint rooting and will be easier to interpret the tree.
 
 ## Novel species
 
-Three cases of pulmonary NTM disease were diagnosed within a year of each other in the same geographic region. The isolates were cutured and sequenced with Illumina technology. You have been tasked with identifying the species.
+Three cases of pulmonary NTM disease were diagnosed within a year of each other in the same geographic region. The isolates were cultured and sequenced with Illumina technology. You have been tasked with identifying the species.
 
 Isolate IDs:
+
 * WMW1108
 * WMW1089
 * WMW1097
@@ -89,8 +90,8 @@ Isolate IDs:
     Run ntm-profiler via the web interface or the CLI and note the species reported.
 
 !!! question
-    * Are the the same species?
-    * If do you have enough data to make an accurate prediction? 
+    * Are they the same species?
+    * Do you have enough data to make an accurate prediction?
 
 ### Further analysis
 
@@ -98,13 +99,13 @@ NTM-Profiler is unable to report a species. There may be several reasons why thi
 
 * Too little data to make a prediction
 * If the isolate belongs to a non-mycobacterial species
-* If the isolatee belongs to a novel mycobacterial species
+* If the isolate belongs to a novel mycobacterial species
 
-By looking at the number of bases in the reads it should be possible to rule out insifficient data. To distinguish between the second and third scenarios we will have to some follow up analysis. To investigate further we would like to compare our isolates against all other mycobacterial species. NTM-Profiler only reports matches with ANI > 95% so we will need to use other tools to further investigate.
+By looking at the number of bases in the reads it should be possible to rule out insufficient data. To distinguish between the second and third scenarios we will have to do some follow-up analysis. To investigate further we would like to compare our isolates against all other mycobacterial species. NTM-Profiler only reports matches with ANI > 95% so we will need to use other tools to further investigate.
 
 #### Generate an assembly
 
-To generate an assebmly we will use a fast tool called `megahit`. We chose this tool because it is fast, however `spades` or `shovill` are more commonly used for bacterial isolate assembly. Run this command to generate an assembly:
+To generate an assembly we will use a fast tool called `megahit`. We chose this tool because it is fast, however `spades` or `shovill` are more commonly used for bacterial isolate assembly. Run this command to generate an assembly:
 
 ```
 megahit -o WMW1108_asm -1 /data/mount/ntm-ngs-data/ntm-course/fastq/WMW1108_1.fastq.gz -2 /data/mount/ntm-ngs-data/ntm-course/fastq/WMW1108_2.fastq.gz
@@ -117,7 +118,7 @@ This will create an output folder called `WMW1108_asm` which will contain a file
 
 !!! task
     Repeat this for the other two samples and try to answer the following questions
-    * How many contigs in each assebmly?
+    * How many contigs in each assembly?
     * Are the genome sizes similar?
     * Are the genome sizes what you would expect for Mycobacteria?
 
@@ -164,7 +165,7 @@ There should be one sequence for each species.
 
 #### Generate distance tree
 
-We can use a diferent distance metric called mash distance which can be calculated across more distantly related sequences. Mash distances can then be converted into a distance-based tree and used to visualise how our sequences compare both to each other and to all other mycobacteial sequences. This analysis workflow is implemented in a software called `mashtree`. You can run it like this:
+We can use a different distance metric called mash distance which can be calculated across more distantly related sequences. Mash distances can then be converted into a distance-based tree and used to visualise how our sequences compare both to each other and to all other mycobacterial sequences. This analysis workflow is implemented in a software called `mashtree`. You can run it like this:
 
 ```
 mashtree --numcpus 4 --outtree mashtree.nwk assemblies/* representative_asm/*
@@ -189,14 +190,14 @@ In this case we seem to get a mixture between two species. This can sometimes ha
 
 
 
-One way to investigate this is to perform a genome assembly. If multiple species are present you could assemble both species and the resulting total assebmly size will be much larger than any single genome could be.
+One way to investigate this is to perform a genome assembly. If multiple species are present you could assemble both species and the resulting total assembly size will be much larger than any single genome could be.
 
 !!! task
     Assemble the genome using `megahit` as you did before.
 
 !!! question
     * What is the total genome size? 
-    * Is this consistant with one or two species?
+    * Is this consistent with one or two species?
 
 This is a critical step when consider whether you have mixtures or contamination. If you jump straight to `mashtree` here it might look like you have a novel species
 
@@ -205,9 +206,9 @@ This is a critical step when consider whether you have mixtures or contamination
 
 !!! question
     * Comment on the clustering pattern. Which species do you think it belongs to?
-    * Calculate the ANI to closely related straings (tip: use `skani`)
+    * Calculate the ANI to closely related strains (tip: use `skani`)
 
-The mashtree analysis assumes only one strain present and will because of this may cluster your assembly in between different species as it is pulled in different directions. This can be misleading so it is always important to investigate using multiple angles.
+The mashtree analysis assumes only one strain present and because of this may cluster your assembly in between different species as it is pulled in different directions. This can be misleading so it is always important to investigate using multiple angles.
 
 !!! task
     Perform a similar analysis for **WMW1101**

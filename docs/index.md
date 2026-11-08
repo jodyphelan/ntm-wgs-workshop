@@ -13,7 +13,7 @@ Assembly-based methods require you to do some data processing first (quality-con
 
 ## Drug resistance
 
-Drug resistance in NTM can be acquired through the evolution of mutations on genes coding for drug targets. Resistance can also occur due to the presence genes coding for drug metabolising enzymes. If we know the mechanisms, we can use WGS data to identify the presence of both drug resistance mutations and genes.
+Drug resistance in NTM can be acquired through the evolution of mutations on genes coding for drug targets. Resistance can also occur due to the presence of genes coding for drug metabolising enzymes. If we know the mechanisms, we can use WGS data to identify the presence of both drug resistance mutations and genes.
 
 ## WGS data
 
@@ -29,4 +29,4 @@ Gap not sequenced           |<----->|
 
 ## Next
 
-The next sections will introduce you to sequence analsis using ntm-profiler and other commandline tools. Enjoy!
+The next sections will introduce you to sequence analysis using ntm-profiler and other commandline tools. Enjoy!

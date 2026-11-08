@@ -17,8 +17,8 @@ We can also use docker to access the CLI. These steps are explained below (note:
 
 ![](img/docker_1.png)
 
-4. CLick on the **_Exec_** tab
-5. Type in `bash` into the main window and hit enter on your keyboard
+4. Click on the **_Exec_** tab
+5. Type in `bash` into the main window and hit ++enter++ on your keyboard
 
 ![](img/docker_2.png)
 
@@ -26,7 +26,7 @@ You now have access to the command line. I'll refer to this as the **_terminal_*
 
 ## Accessing the files
 
-1. On your file explorer copy in the example data into the **_mount_** folder. You may also put any other data you want to analyse. Please **copy** the data as it is very easy to accidentaly delete data when using the terminal
+1. On your file explorer copy in the example data into the **_mount_** folder. You may also put any other data you want to analyse. Please **copy** the data as it is very easy to accidentally delete data when using the terminal
 2. On the terminal type in `cd /data/mount`. This will change your active directory on the linux container to where you have made the data available
 3. Type in `ls` to check if you can see your files
 
@@ -49,7 +49,7 @@ mkdir analysis
 cd analysis
 ```
 
-The first command moved to the `/data/mount/ntm-ngs-data/ntm-course/` folder and the second command create a new folder called `analysis`. Finally, we moved into the new folder.
+The first command moved to the `/data/mount/ntm-ngs-data/ntm-course/` folder and the second command created a new folder called `analysis`. Finally, we moved into the new folder.
 
 We can then run the following command:
 
@@ -66,7 +66,7 @@ The pattern is `ntm-profiler profile` followed by a series of arguments:
 5. `--txt` tells the software to produce a text report in addition to the json format report
 
 !!! hint
-    The tool usually runs for a few minutes. If you notice it finishing in a few seconds it probably has not executed correctly. The first thing to do is check for typos in your command. Note: the terminal is case sensitive so make sure you have typed our the arguments exactly as they are written in the command above.
+    The tool usually runs for a few minutes. If you notice it finishing in a few seconds it probably has not executed correctly. The first thing to do is check for typos in your command. Note: the terminal is case sensitive so make sure you have typed out the arguments exactly as they are written in the command above.
 
 
 ### Checking the output

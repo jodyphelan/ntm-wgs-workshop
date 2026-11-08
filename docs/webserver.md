@@ -18,7 +18,7 @@ To demonstrate how to upload data, we will use the sample SAMEA2071452.
 
 5. Make sure the file endings match with what your files have. Different instruments will produce slightly different namings. For example if your files were `SAMEA2071452_R1.fastq.gz` and `SAMEA2071452_R2.fastq.gz`, then you should input `_R1.fastq.gz` and `_R2.fastq.gz`.
 
-6. Click validate and then check that the files have been correctly matches. In this case you should see a table with one row. You should see it has automatically extracted the sample name as `SAMEA2071452` and matches this to the correct forward and reverse read files. If you had any mistakes or files which could not be added to a sample it will indicate with a warning and you can change the settings and try to validate again.
+6. Click validate and then check that the files have been correctly matched. In this case you should see a table with one row. You should see it has automatically extracted the sample name as `SAMEA2071452` and matches this to the correct forward and reverse read files. If you had any mistakes or files which could not be added to a sample it will indicate with a warning and you can change the settings and try to validate again.
 
 ![](img/upload_1.png)
 
@@ -58,7 +58,7 @@ It will show you the:
 In this case, the software has predicted **_Mycobacterium abscessus_**. 
 
 !!! Note
-    Species prediction is performed using the taxonomic nomenclature published by the Genome Taxonomy Database (GTDB). This uses the single Mycobacterium genus for all species and differs in this respect from the NCBI taxonomy scheme which splits it up into five different genus.
+    Species prediction is performed using the taxonomic nomenclature published by the Genome Taxonomy Database (GTDB). This uses the single Mycobacterium genus for all species and differs in this respect from the NCBI taxonomy scheme which splits it up into five different genera.
 
 #### QC
 
@@ -72,7 +72,7 @@ The overview section will show you
 2. Percent of reads mapped -  The closer the value is to 100% the more of your data has been aligned to the reference genome. Low percentages could mean potential contamination or a strain which differs significantly from the reference sequence. 
 3. Median depth - This is the median depth of the reads across the reference genome. E.g. a median depth of 30x means on average each position is covered by 30 reads. Higher values will give you more confidence on detecting mutations. Generally 30x coverage is sufficient to detect mutations and genes of interest.
 
-The target-specific coverage will show you for each resistance-associated gene the percentage which is covered sufficiently (defualt = 10x) and the median depth for that gene. Low values in both columns could indicate lack of data or a potential partial or full deletion of the gene.
+The target-specific coverage will show you for each resistance-associated gene the percentage which is covered sufficiently (default = 10x) and the median depth for that gene. Low values in both columns could indicate lack of data or a potential partial or full deletion of the gene.
 
 #### Species
 
@@ -101,7 +101,7 @@ As mentioned above, resistance is driven by acquisition of mutations or the pres
 
 ![](img/results_4.png)
 
-The first summary table will show a row for each drug together with the any resistance variants found in the associated resistance genes. In this example we should be able to see three different mutations (two in rrl and one in rrs) and the presence of a functionally normal erm(41) gene which confers resistance to macrolides.
+The first summary table will show a row for each drug together with any resistance variants found in the associated resistance genes. In this example we should be able to see three different mutations (two in rrl and one in rrs) and the presence of a functionally normal erm(41) gene which confers resistance to macrolides.
 
 !!! question
     You may notice that the same position is represented twice in rrl. Why do you think this is?
@@ -112,14 +112,14 @@ These results are further described in the subsequent tables. For drug resistant
 3. Fraction - the proportion of the reads supporting a variant (values between 0 and 1). Values less than 1 could indicate a minority variant due to a subpopulation with the mutation (i.e. heteroresistance)
 4. E. coli nomenclature - mutations may sometimes be referred to based on position of the mutation in E. coli
 
-NTM-Profiler does not only analyse drug resistant variants, variants are detected across the whole gene of interest and so may capture other mutations which are not associated with resistance or a novel resistance variant that is not present in the database. Similar information is shows as described above.
+NTM-Profiler does not only analyse drug resistant variants, variants are detected across the whole gene of interest and so may capture other mutations which are not associated with resistance or a novel resistance variant that is not present in the database. Similar information is shown as described above.
 
 !!! question
     How many missense mutations can you identify? Which genes are they in?
 
 #### Genome browser
 
-The alignments of the reads across resistance genes is stored and can be browser on the next tab.
+The alignments of the reads across resistance genes are stored and can be browsed on the next tab.
 
 ![](img/results_5.png)
 
@@ -135,7 +135,7 @@ This contains the log output from ntm-profiler. Not super interesting unless som
 
 #### Download
 
-Different files are available to download. The results are available as text and json files. In addition, if a reference genome was available for your species, it will display the BAM file which contains the alignments of the reads, along wiht the index for for the bam and the reference genome files. These can be used to visualise in IGV or for custom downstream processing.
+Different files are available to download. The results are available as text and json files. In addition, if a reference genome was available for your species, it will display the BAM file which contains the alignments of the reads, along with the index for the bam and the reference genome files. These can be used to visualise in IGV or for custom downstream processing.
 
 
 
@@ -144,7 +144,7 @@ Different files are available to download. The results are available as text and
 ### Fasta input
 
 Locate the assembly file in fasta format and upload this using the same method as above. You will need to change the input file type to **_Fasta assembly_**.
-When using fasta as input, the data will processed in a different way. These differences are explained below.
+When using fasta as input, the data will be processed in a different way. These differences are explained below.
 
 #### QC
 
@@ -155,18 +155,18 @@ As we no longer have reads, the QC page will now only display:
 
 #### Species
 
-As assebmly essentially uses all the reads to produce one sequence, we lose abundance information. It is still displayed here but should be used for interpretation when using fasta as input.
+As assembly essentially uses all the reads to produce one sequence, we lose abundance information. It is still displayed here but should not be used for interpretation when using fasta as input.
 
 #### Drug resistance
 
 As mentioned above, abundance information is removed. This also means minority variants will **not be detected**. 
 
 !!! question
-    Can you see any difference in this page from when you used fasta?
+    Can you see any difference in this page from when you used FASTQ?
 
 #### Genome browser
 
-The genone browser is not available for fasta input.
+The genome browser is not available for fasta input.
 
 
 ## Summary
